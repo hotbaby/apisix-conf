@@ -5,4 +5,4 @@ docker run -d --restart always \
               -p 8080:8080 \
               --link skywalking:skywalking \
               -e SW_OAP_ADDRESS=skywalking:12800 \
-              apache/skywalking-ui
+              apache/skywalking-ui:8.7.0
