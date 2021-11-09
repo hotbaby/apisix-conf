@@ -1,7 +1,7 @@
 docker kill skywalking
 docker rm skywalking
 docker run -d --restart always \
-              --name skywalking 
+              --name skywalking \
               -p 1234:1234 \
               -p 11800:11800 \
               -p 12800:12800 \
