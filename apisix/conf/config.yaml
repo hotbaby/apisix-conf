@@ -16,10 +16,10 @@ apisix:
 
 etcd:
   host:                           # it's possible to define multiple etcd hosts addresses of the same etcd cluster.
-    - "http://10.100.19.178:2379"     # multiple etcd address
+    - "http://127.0.0.1:2379"     # multiple etcd address
     # - "http://10.100.19.179:2379"
     # - "http://10.100.19.180:2379"
-  prefix: "/bdp/apisix"               # apisix configurations prefix
+  prefix: "/apisix"               # apisix configurations prefix
   timeout: 30                     # 30 seconds
 
 plugin_attr:
