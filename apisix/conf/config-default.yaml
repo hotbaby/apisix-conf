@@ -61,7 +61,7 @@ apisix:
       #  cache_levels: "1:2"
 
   allow_admin:                  # http://nginx.org/en/docs/http/ngx_http_access_module.html#allow
-    - 0.0.0.0/0              # If we don't set any IP list, then any IP access is allowed by default.
+    - 127.0.0.0/24              # If we don't set any IP list, then any IP access is allowed by default.
     #- "::/64"
   #port_admin: 9180             # use a separate port
   #https_admin: true            # enable HTTPS when use a separate port for Admin API.
@@ -78,12 +78,12 @@ apisix:
   admin_key:
     -
       name: "admin"
-      key: 2854c33299bd4ce3b663efbdd21fa403
+      key: edd1c9f034335f136f87ad84b625c8f1
       role: admin                 # admin: manage all configuration data
                                   # viewer: only can view configuration data
     -
       name: "viewer"
-      key: cbf9336c10394c368f27d650355c4e32
+      key: 4054f7cf07e344346cd3f287985e76a2
       role: viewer
 
   delete_uri_tail_slash: false    # delete the '/' at the end of the URI
@@ -198,7 +198,7 @@ nginx_config:                     # config for render the template to generate n
 
 etcd:
   host:                           # it's possible to define multiple etcd hosts addresses of the same etcd cluster.
-    - "http://etcd:2379"     # multiple etcd address, if your etcd cluster enables TLS, please use https scheme,
+    - "http://127.0.0.1:2379"     # multiple etcd address, if your etcd cluster enables TLS, please use https scheme,
                                   # e.g. "https://127.0.0.1:2379".
   prefix: "/apisix"               # apisix configurations prefix
   timeout: 30                     # 30 seconds
@@ -273,7 +273,7 @@ plugins:                          # plugin list (sorted in alphabetical order)
   - response-rewrite
   - serverless-post-function
   - serverless-pre-function
-  - skywalking
+  #- skywalking
   - sls-logger
   - syslog
   - tcp-logger
@@ -293,8 +293,8 @@ plugin_attr:
     max_kept: 168     # max number of log files will be kept
   skywalking:
     service_name: APISIX
-    service_instance_name: "APISIX Ubuntu Instance"
-    endpoint_addr: http://skywalking:12800
+    service_instance_name: "APISIX Instance Name"
+    endpoint_addr: http://127.0.0.1:12800
   prometheus:
     export_uri: /apisix/prometheus/metrics
     enable_export_server: true
