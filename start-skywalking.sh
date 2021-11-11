@@ -8,4 +8,4 @@ docker run -d --restart always \
               --link elasticsearch:elasticsearch \
               -e SW_STORAGE=elasticsearch \
               -e SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200 \
-              apache/skywalking-oap-server:6.6.0-es7
+              apache/skywalking-oap-server:8.3.0-es6
